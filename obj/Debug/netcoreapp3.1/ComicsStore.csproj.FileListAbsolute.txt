@@ -598,7 +598,6 @@ D:\Test\ComicsStore\ComicsStore\obj\Debug\netcoreapp3.1\Razor\Pages\MyCart.cshtm
 D:\Test\ComicsStore\ComicsStore\obj\Debug\netcoreapp3.1\Razor\Pages\_MyCartLayout.cshtml.g.cs
 D:\Test\ComicsStore\ComicsStore\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
 D:\Test\ComicsStore\ComicsStore\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
-D:\Test\ComicsStore\ComicsStore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Admin.cshtml.g.cs
 D:\Test\ComicsStore\ComicsStore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Create.cshtml.g.cs
 D:\Test\ComicsStore\ComicsStore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\Test\ComicsStore\ComicsStore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs

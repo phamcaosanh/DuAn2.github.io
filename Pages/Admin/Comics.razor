@@ -18,7 +18,7 @@
 {
 <tr>
 <td>@b.ComicID</td>
-<td><img  src="~/Images/@b.ProfilePicture" alt="Card image cap"  asp-append-version="true"></td>
+<td><img  src="/Images/@b.ProfilePicture"  style="width:10%;height:10%"></td>
 <td>@b.Title</td>
 <td>@b.Genre</td>
 <td>@b.Price.ToString("00,0 VNĐ")</td>
@@ -26,11 +26,11 @@
 <NavLink class="btn btn-info btn-sm"
 href="@GetDetailsUrl(b.ComicID)">
 Details
-</NavLink>
+</NavLink><br>
 <NavLink class="btn btn-warning btn-sm"
 href="@GetEditUrl(b.ComicID)">
 Edit
-</NavLink>
+</NavLink><br>
 <button class="btn btn-danger btn-sm"
 @onclick="@(e => Delete(b))">
 Delete

@@ -63,7 +63,7 @@ using ComicsStore.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "D:\Test\ComicsStore\ComicsStore\Pages\Admin\Editor.razor"
+#line 47 "D:\Test\ComicsStore\ComicsStore\Pages\Admin\Editor.razor"
        
 public IComicsStoreRepository Repository => Service;
 [Inject]

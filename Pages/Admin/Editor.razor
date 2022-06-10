@@ -1,5 +1,6 @@
 ﻿@page "/admin/comics/edit/{id:long}"
 @page "/admin/comics/create"
+<link rel="stylesheet" href="/js/site2.js"/>
 @inherits OwningComponentBase<IComicsStoreRepository>
 <style>
 div.validation-message {
@@ -34,8 +35,6 @@ font-weight: 500
 <ValidationMessage For="@(() => Comic.Genre)" />
 <InputText class="form-control" @bind-Value="Comic.Genre" />
 </div>
-
-
 <div class="form-group">
 <label>Giá</label>
 <ValidationMessage For="@(() => Comic.Price)" />
@@ -73,3 +72,4 @@ NavManager.NavigateTo("/admin/comics");
 public string ThemeColor => Id == 0 ? "primary" : "warning";
 public string TitleText => Id == 0 ? "Create" : "Edit";
 }
+
