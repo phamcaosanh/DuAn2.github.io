@@ -1,0 +1,26 @@
+﻿@page "/admin/comics/details/{id:long}"
+<h3 class="bg-info text-white text-center p-1">Details</h3>
+<table class="table table-sm table-bordered table-striped">
+<tbody>
+<tr><th>Mã Truyện</th><td>@Comic.ComicID</td></tr>
+<td><img  src="~/Images/@Comic.ProfilePicture" alt="Card image cap"  asp-append-version="true"></td>
+<tr><th></th><td>@Comic.Title</td></tr>
+<tr><th>Mô tả</th><td>@Comic.Description</td></tr>
+<tr><th>Thể loại</th><td>@Comic.Genre</td></tr>
+<tr><th>Ngày xuất bản</th><td>@Comic.Release.ToString("dd MMM yy")</td></tr>
+<tr><th>Giá</th><td>@Comic.Price.ToString("00,0 VNĐ")</td></tr>
+</tbody>
+</table>
+<NavLink class="btn btn-warning" href="@EditUrl">Edit</NavLink>
+<NavLink class="btn btn-secondary" href="/admin/comics">Back</NavLink>
+@code {[Inject]
+public IComicsStoreRepository Repository { get; set; }
+[Parameter]
+public long Id { get; set; }
+public Comic Comic { get; set; }
+protected override void OnParametersSet()
+{
+Comic = Repository.Comics.FirstOrDefault(b => b.ComicID == Id);
+}
+public string EditUrl => $"/admin/comics/edit/{Comic.ComicID}";
+}

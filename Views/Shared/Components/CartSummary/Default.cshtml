@@ -1,0 +1,18 @@
+﻿@model MyCart
+
+@if (Model.Lines.Count() > 0)
+{
+<div class="navbar-text" style="font-size:medium">
+@if (Model.Lines.Sum(x => x.Quantity) >= 2)
+{
+<text>@Model.Lines.Sum(x => x.Quantity)<a class="fas fa-bell" asp-page="/MyCart"></a></text>
+}
+else
+{
+<text>@Model.Lines.Sum(x => x.Quantity) <a class="fas fa-bell" asp-page="/MyCart"></a></text>
+}</div>
+}
+<a  asp-page="/MyCart"
+asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+<i class="fas fa-gift"></i>
+</a>

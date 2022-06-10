@@ -1,0 +1,140 @@
+﻿@model ComicsStore.Models.ViewModels.ComicsListViewModel
+<link rel="stylesheet" href="~/css/site.css"/>
+<script src="https://kit.fontawesome.com/fe0decd0b5.js" crossing="anonymous"></script>
+<link rel="stylesheet" href="~/css/Style2.css"/>
+           
+<body>
+
+     <section class="home" id="home">
+
+     <div class="row">
+
+        <div class="content">
+            <h3>Super Sale 75%</h3>
+            <p>Đổi sách cũ nhận sách mới, tha hồ lựa chọn</p>
+            <a href="#" class="btn">Xem Ngay</a>
+        </div>
+
+           <div class="swiper books-slider">
+            <div class="swiper-wrapper">
+                <a  class="swiper-slide"><img src="~/Images/book-1.png" alt=""></a>
+                <a  class="swiper-slide"><img src="~/Images/book-2.png" alt=""></a>
+                <a  class="swiper-slide"><img src="~/Images/book-3.png" alt=""></a>
+                <a  class="swiper-slide"><img src="~/Images/book-4.png" alt=""></a>
+                <a  class="swiper-slide"><img src="~/Images/book-5.png" alt=""></a>
+                <a  class="swiper-slide"><img src="~/Images/book-6.png" alt=""></a>
+            </div>
+            <img src="~/Images/stand.png" class="stand" alt="">
+           </div>
+
+       </div>
+
+    </section>
+
+    <!-- home section ense  -->
+
+    <!-- icons section starts  -->
+
+    <section class="icons-container">
+
+        <div class="icons">
+            <i class="fas fa-shipping-fast"></i>
+            <div class="content">
+                <h3>free shipping</h3>
+                <p>order over $100</p>
+            </div>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-lock"></i>
+            <div class="content">
+                <h3>secure payment</h3>
+                <p>100 secure payment</p>
+            </div>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-redo-alt"></i>
+            <div class="content">
+                <h3>easy returns</h3>
+                <p>10 days returns</p>
+            </div>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-headset"></i>
+            <div class="content">
+                <h3>24/7 support</h3>
+                <p>call us anytime</p>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- newsletter section ends -->
+
+    <!-- arrivals section starts  -->
+
+    <section class="arrivals" id="arrivals">
+
+        <h1 class="heading"> <span>Sản Phẩm</span> </h1>
+
+        <div id="categories" class="col-12" style="margin-left:140px;">
+            <h6 style="color:black;font-size:25px">ComicsStore - Cửa hàng chuyên về truyện tranh và các đồ chơi chính hãng.</h6>
+            <br>
+            <vc:genre-navigation />
+        </div>
+
+        <div class="swiper arrivals-slider">
+
+            <div class="swiper-wrapper">
+                 @foreach (var comic in Model.Comics)
+                   {
+                <a href="#" class="swiper-slide box">
+                    <div class="image">
+                        <img  src="~/Images/@comic.ProfilePicture" alt="Card image cap"  asp-append-version="true">
+                    </div>
+                    <div class="content" >
+                        <h3>@comic.Title</h3>
+                        <div class="price"><b>Thể Loại</b>: @comic.Genre</div>
+                        <div class="price"><b>Mô tả</b>: @comic.Description</div>
+                        <div class="price"><b>Ngày xuất bản</b>: @comic.Release.ToString("dd MMM yy")</div>
+                        <div class="price"><b>Giá Tiền</b>: @comic.Price.ToString("00,0 VNĐ")</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <partial name="ComicTemplate" model="comic"/>
+                    </div>
+                </a>
+                }
+        </div>
+        <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" page-url-genre="@Model.CurrentGenre"
+     class="btn-group pull-left m-1"></div>
+        </div>
+    </section>
+    <section class="newsletter">
+
+        <form action="">
+            <h3>subscribe for latest updates</h3>
+            <input type="email" name="" placeholder="enter your email" id="" class="box">
+            <input type="submit" value="subscribe" class="btn">
+        </form>
+
+    </section>
+
+
+
+
+
+
+</body>

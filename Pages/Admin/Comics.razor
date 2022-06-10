@@ -1,0 +1,68 @@
+﻿@page "/admin/comics"
+@page "/admin"
+@inherits OwningComponentBase<IComicsStoreRepository>
+<table class="table table-sm table-striped table-bordered">
+<thead>
+<tr>
+<th>ID</th>
+<th>Hình Ảnh</th>
+<th>Tên Truyện</th>
+<th>Thể Loại</th>
+<th>Giá</th>
+<td />
+</tr>
+</thead><tbody>
+@if (ComicData?.Count() > 0)
+{
+@foreach (Comic b in ComicData)
+{
+<tr>
+<td>@b.ComicID</td>
+<td><img  src="~/Images/@b.ProfilePicture" alt="Card image cap"  asp-append-version="true"></td>
+<td>@b.Title</td>
+<td>@b.Genre</td>
+<td>@b.Price.ToString("00,0 VNĐ")</td>
+<td>
+<NavLink class="btn btn-info btn-sm"
+href="@GetDetailsUrl(b.ComicID)">
+Details
+</NavLink>
+<NavLink class="btn btn-warning btn-sm"
+href="@GetEditUrl(b.ComicID)">
+Edit
+</NavLink>
+<button class="btn btn-danger btn-sm"
+@onclick="@(e => Delete(b))">
+Delete
+</button>
+</td>
+</tr>
+}
+}
+else
+{
+<tr>
+<td colspan="5" class="text-center">No Comics</td>
+</tr>
+}
+</tbody></table>
+<NavLink class="btn btn-primary" href="/admin/comics/create">Create</NavLink>
+@code {
+public IComicsStoreRepository Repository => Service;
+public IEnumerable<Comic> ComicData { get; set; }
+protected async override Task OnInitializedAsync()
+{
+await UpdateData();
+}
+public async Task UpdateData()
+{
+ComicData = await Repository.Comics.ToListAsync();
+}
+public async Task Delete(Comic b)
+{
+Repository.Delete(b);
+await UpdateData();
+}
+public string GetDetailsUrl(long id) => $"/admin/comics/details/{id}";
+public string GetEditUrl(long id) => $"/admin/comics/edit/{id}";
+}

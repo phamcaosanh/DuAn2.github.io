@@ -1,0 +1,42 @@
+﻿
+
+@model ComicsStore.Models.ViewModels.ComicsListViewModel
+
+<div class="row">
+    @foreach (var comic in Model.Comics)
+    {
+        <div class=" col-md-4 col-xs-2 mb-3 ">
+            <div class="card mb-3 "  style="max-width: 80%; max-height:80%">
+               
+                    <div class="row">
+                    <div class="col-sm-12">
+                       <img class="card-img-top" src="~/Images/@comic.ProfilePicture" alt="Card image cap"  asp-append-version="true">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-body alert-secondary">
+                            <p class="card-text" style="font-weight:bold"> @comic.Title</p>
+                            <p class="card-text"><b>Thể Loại</b>: @comic.Genre</p>
+                            <p class="card-text"><b>Mô tả:</b> @comic.Description</p>
+                            <p class="card-text"><b>Ngày xuất bản</b>: @comic.Release.ToString("dd MMM yy")</p>
+                            <p class="card-text"><b>Giá Tiền</b>:@comic.Price.ToString("c")</p>
+                        </div>
+                    </div>
+                    </div>
+                   @* <div class="col-md-12">
+                        <div class="card-footer ">
+                            <p class="card-text">
+                                <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@comic.ComicID">
+                                    <i class="bi bi-eye-fill"></i> Xem thông tin
+                                </a>
+                                <a class="btn btn-success text-white"
+                                   asp-route-id="@comic.ComicID">
+                                    <i class="bi bi-cart-plus"></i>Mua (Giá: @comic.Price.ToString("c"))
+                                </a>
+                            </p>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+
+    }
+</div>
