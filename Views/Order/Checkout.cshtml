@@ -1,7 +1,8 @@
 ﻿@model Order
-<p>Please enter your details:</p>
+<body style="font-size:20px">
+<p>Nhập thông tin của bạn:</p>
 <div asp-validation-summary="All" class="text-danger"></div>
-<form asp-action="Checkout" method="post">
+<form asp-action="Checkout" method="post"><br />
 <h3>Ship to</h3>
 <div class="form-group">
 <label>Name:</label><input asp-for="Name" class="form-control" />
@@ -27,4 +28,4 @@
 <div class="text-center">
 <input class="btn btn-primary" type="submit" value="Order" />
 </div>
-</form>
+</form></body>

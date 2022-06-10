@@ -1,13 +1,13 @@
 ﻿@page
 @model MyCartModel
-<h2>Your cart</h2>
+<h2>Giỏ hàng của bạn</h2>
 <table class="table table-bordered">
 <thead class="thead-light">
 <tr>
-<th>Quantity</th>
-<th>Item</th>
-<th class="text-right">Price</th>
-<th class="text-right">Subtotal</th>
+<th>Số lượng</th>
+<th>Sản phẩm</th>
+<th class="text-right">Giá</th>
+<th class="text-right">Tổng tiền</th>
 </tr>
 </thead>
 <tbody>
@@ -22,7 +22,7 @@
 </td>
 <td class="text-center">
 <form asp-page-handler="Remove" method="post">
-<input type="hidden" name="BookID"
+<input type="hidden" name="ComicID"
 value="@line.Comic.ComicID" />
 <input type="hidden" name="returnUrl"
 value="@Model.ReturnUrl" />
